@@ -25,3 +25,11 @@ class Genero(models.Model):
     
     class Meta:
         verbose_name_plural = "Generos"
+        
+class Artistas(models.Model):
+    nome = models.CharField(max_length=50)
+    descricao = models.CharField(max_length=1500)
+    
+    def __str__(self):
+        return self.nome
+    
