@@ -1,3 +1,10 @@
 from django.shortcuts import render
 
-# Create your views here.
+from rest_framework.viewsets import ModelViewSet
+
+from core.models import Filmes
+from core.serializers import FilmesSerializer
+
+class FilmesViewSet(ModelViewSet):
+    queryset = Filmes.objects.all()
+    serializer_class = FilmesSerializer
