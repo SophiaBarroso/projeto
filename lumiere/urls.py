@@ -7,7 +7,7 @@ from core.views import FilmesViewSet, GeneroViewSet
 
 router = DefaultRouter()
 router.register(r'filmes', FilmesViewSet)
-router.register(r'editoras', EditoraViewSet)
+router.register(r'genero', GeneroViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
