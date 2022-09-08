@@ -36,3 +36,8 @@ class Artistas(models.Model):
     def __str__(self):
         return self.nome
     
+class Plataforma(models.Model):
+    plataforma = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.plataforma
