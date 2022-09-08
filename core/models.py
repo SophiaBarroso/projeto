@@ -6,6 +6,9 @@ class Usuario(models.Model):
     senha = models.CharField(max_length=15)
     dt_nasc = models.DateField()
 
+    def __str__(self):
+        return self.nome
+
 class Filmes(models.Model):
     titulo = models.CharField(max_length=90)
     descricao = models.CharField(max_length=500)
@@ -24,7 +27,7 @@ class Genero(models.Model):
         return self.nome_genero
     
     class Meta:
-        verbose_name_plural = "Generos"
+        verbose_name_plural = "Gêneros"
         
 class Artistas(models.Model):
     nome = models.CharField(max_length=50)
