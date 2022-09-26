@@ -3,11 +3,14 @@ from django.urls import include, path
 
 from rest_framework.routers import DefaultRouter
 
-from core.views import FilmesViewSet, GeneroViewSet
+from core.views import FilmesViewSet, GeneroViewSet, ArtistasViewSet, UsuarioViewSet, PlataformaViewSet
 
 router = DefaultRouter()
 router.register(r'filmes', FilmesViewSet)
 router.register(r'genero', GeneroViewSet)
+router.register(r'artistas', ArtistasViewSet)
+router.register(r'usuario', UsuarioViewSet)
+router.register(r'plataforma', PlataformaViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
