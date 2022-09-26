@@ -73,6 +73,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "lumiere.wsgi.application"
 
+AUTH_USER_MODEL = "core.Usuario"
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
