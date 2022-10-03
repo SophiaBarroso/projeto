@@ -15,4 +15,4 @@ class Critica(models.Model):
     dt_critica = models.DateField()
     crt_user = models.ForeignKey(Usuario, on_delete=models.PROTECT, related_name='criticas')
     crt_filme = models.ForeignKey(Filmes, on_delete=models.PROTECT, related_name='criticas')
-    nota = models.PositiveIntegerField(null=False, choices=estrelas)
+    nota = models.PositiveIntegerField(null=False, blank=True, choices=estrelas)
