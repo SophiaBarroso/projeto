@@ -80,8 +80,18 @@ AUTH_USER_MODEL = "core.Usuario"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        # default
+        "ENGINE": "django.db.backends.postgresql",
+        # database
+        "NAME": "railway",
+        # pguser
+        "USER":"postgres",
+        # pgpass
+        "PASSWORD":"cu1Mh5DN23ShpHNdIlJV",
+        # pghost
+        "HOST":"containers-us-west-72.railway.app",
+        # pgport
+        "PORT": "6193", 
     }
 }
 
@@ -128,5 +138,3 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-CSRF_TRUSTED_ORIGINS = ['https://*.up.railway.app','https://*.127.0.0.1']
