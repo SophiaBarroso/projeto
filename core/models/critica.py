@@ -11,7 +11,7 @@ class Critica(models.Model):
         (4, "4 estrelas"),
         (5, "5 estrelas"),
     )
-    conteudo = models.CharField(max_length=125)
+    conteudo = models.CharField(max_length=500)
     dt_critica = models.DateField()
     crt_user = models.ForeignKey(Usuario, on_delete=models.PROTECT, related_name='criticas')
     crt_filme = models.ForeignKey(Filmes, on_delete=models.PROTECT, related_name='criticas')
