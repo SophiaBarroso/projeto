@@ -1,7 +1,9 @@
 from django.db import models
+
 from core.models.filmes import Filmes
 
 from .artistas import Artistas
+
 
 class Elenco(models.Model):
     personagem = models.CharField(max_length=50)
@@ -10,3 +12,5 @@ class Elenco(models.Model):
     
     def __str__(self):
         return self.personagem
+    class Meta:
+        verbose_name_plural= "Elenco"

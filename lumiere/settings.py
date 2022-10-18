@@ -1,4 +1,5 @@
 import os
+
 """
 Django settings for lumiere project.
 
@@ -10,7 +11,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+from decouple import config
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -21,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-1ya*+2i8+362)&$cxrixv8g+2+cpaoayf7n$%%pjc$osaokm%x"
+SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,6 +39,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "drf_spectacular",
+    "rest_framework_simplejwt",
     "rest_framework",
     "core",
 ]
@@ -83,15 +86,15 @@ DATABASES = {
         # default
         "ENGINE": "django.db.backends.postgresql",
         # database
-        "NAME": "railway",
+        "NAME": config("PGDATABASE"),
         # pguser
-        "USER":"postgres",
+        "USER":config("PGUSER"),
         # pgpass
-        "PASSWORD":"cu1Mh5DN23ShpHNdIlJV",
+        "PASSWORD":config("PGPASSWORD"),
         # pghost
-        "HOST":"containers-us-west-72.railway.app",
+        "HOST":config("PGHOST"),
         # pgport
-        "PORT": "6193", 
+        "PORT": config("PGPORT"), 
     }
 }
 
@@ -114,6 +117,18 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+# autenticação
+
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.DjangoModelPermissions",
+    ],
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
@@ -140,3 +155,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 CSRF_TRUSTED_ORIGINS = ['https://*.up.railway.app','https://*.127.0.0.1']
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Lumiére Api",
+    "DESCRIPTION": "API para gerenciamento do projeto integrador Lumiére, incluindo endpoints e documentação.",
+    "VERSION": "1.0.0",
+}

@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Genero(models.Model):
     nome_genero = models.CharField(max_length=45)
     

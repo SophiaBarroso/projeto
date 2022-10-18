@@ -1,7 +1,8 @@
 from django.db import models
-from core.models.filmes import Filmes
 
+from core.models.filmes import Filmes
 from core.models.usuario import Usuario
+
 
 class Critica(models.Model):
     estrelas = (

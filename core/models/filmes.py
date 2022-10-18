@@ -1,7 +1,8 @@
 from django.db import models
 
-from .plataforma import Plataforma
 from .genero import Genero
+from .plataforma import Plataforma
+
 
 class Filmes(models.Model):
     titulo = models.CharField(max_length=90)
@@ -15,3 +16,5 @@ class Filmes(models.Model):
 
     def __str__(self):
         return self.titulo
+    class Meta:
+        verbose_name_plural="Filmes"
