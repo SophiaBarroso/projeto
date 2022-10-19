@@ -4,3 +4,4 @@ from .elenco import ElencoViewSet
 from .filmes import FilmesViewSet
 from .genero import GeneroViewSet
 from .plataforma import PlataformaViewSet
+from .usuario import UsuarioViewSet

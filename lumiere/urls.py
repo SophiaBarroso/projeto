@@ -15,6 +15,7 @@ from core.views import (
     FilmesViewSet,
     GeneroViewSet,
     PlataformaViewSet,
+    UsuarioViewSet
 )
 
 router = DefaultRouter()
@@ -23,6 +24,7 @@ router.register(r'genero', GeneroViewSet)
 router.register(r'artistas', ArtistasViewSet)
 router.register(r'plataforma', PlataformaViewSet)
 router.register(r'critica', CriticaViewSet)
+router.register(r'ususario', UsuarioViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
